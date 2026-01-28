@@ -29,6 +29,7 @@ Z7_DIAGNOSTIC_IGNORE_END_RESERVED_MACRO_IDENTIFIER
 #endif
 
 #include <pthread.h>
+#include <sched.h>
 
 #endif
 
