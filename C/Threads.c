@@ -472,7 +472,7 @@ WRes Thread_Create_With_CpuSet(CThread *p, THREAD_FUNC_TYPE func, LPVOID param, 
       */
 
       // ret2 =
-      pthread_attr_setaffinity_np(&attr, sizeof(*cpuSet), cpuSet);
+      //pthread_attr_setaffinity_np(&attr, sizeof(*cpuSet), cpuSet);
       // if (ret2) ret = ret2;
 #endif
     }
@@ -482,14 +482,14 @@ WRes Thread_Create_With_CpuSet(CThread *p, THREAD_FUNC_TYPE func, LPVOID param, 
     if (!ret)
     {
       p->_created = 1;
-      /*
       if (cpuSet)
       {
+#if defined(__linux__)
         // ret2 =
         pthread_setaffinity_np(p->_tid, sizeof(*cpuSet), cpuSet);
         // if (ret2) ret = ret2;
+#endif
       }
-      */
     }
   }
   // ret2 =
